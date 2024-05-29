@@ -1,13 +1,23 @@
-import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { IonContent, IonImg  } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [
+    IonContent,
+    IonImg,
+  ],
 })
-export class HomePage {
-  constructor() {}
+export default class HomePage {
+  
+  private _router = inject(Router)
+
+  navigatoToRegister() {
+    this._router.navigateByUrl('/register')
+  }
+
 }

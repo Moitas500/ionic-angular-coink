@@ -3,10 +3,33 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    loadComponent: () => import('./home/home.page'),
   },
   {
-    path: '',
+    path: 'register',
+    loadComponent: () => import('./register/register.page'),
+    children: [
+      {
+        path: 'cellphone',
+        loadComponent: () => import('./register/pages/cellphone/cellphone.page')
+      },
+      {
+        path: 'account',
+        loadComponent: () => import('./register/pages/account/account.page')
+      },
+      {
+        path: 'end',
+        loadComponent: () => import('./register/pages/end/end.page')
+      },
+      {
+        path: '**',
+        redirectTo: 'cellphone',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: '**',
     redirectTo: 'home',
     pathMatch: 'full',
   },

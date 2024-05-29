@@ -1,27 +1,59 @@
-#container {
-  text-align: center;
+@import "../../global.scss";
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-img{
+  width: 125px;
+}
+
+.container-text {
+  width: 80%;
+}
+
+.center-img {
+  margin-top: auto;
+  margin-bottom: 20px;
 }
 
 #container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+  color: $green-logo;
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 20px; 
+  font-family: $font-family;
 }
 
-#container a {
-  text-decoration: none;
+.container-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+}
+
+button {
+  width: 90%;
+  padding: 18px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  font-family: $font-family;
+}
+
+.register {
+  background-color: $green-bright;
+  color: $black-text;
+}
+
+.signup {
+  background-color: $green-dark;
 }

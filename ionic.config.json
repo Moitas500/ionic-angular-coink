@@ -1,0 +1,7 @@
+{
+  "name": "ionic-angular-coink",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

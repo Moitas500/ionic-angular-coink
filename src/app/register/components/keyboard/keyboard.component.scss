@@ -1,0 +1,66 @@
+@import "../../../../theme/variables.scss";
+
+input {
+    background-color: #FAFAFA;
+    padding-block: .5em;
+    border: .1em solid #fff;
+    border-radius: 10px;
+    height: 60px;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+}
+
+::placeholder {
+    color: #AAAAAA;
+}
+
+.container-keyboard {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 90%;
+    height: 90%;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: start;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.button-green {
+    color: $green-dark;
+    width: 20px;
+    height: 100%;
+}
+
+.gray-button {
+    color: white;
+    background-color: gray;
+    width: 50px;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.approved-button {
+    color: white;
+    background-color: $green-bright;
+    width: 50px;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.back-icon {
+    width: 100%;
+    height: 100%;
+}
+
+ion-icon {
+    width: 40px;
+    height: 30px;
+}
+
+ion-button span {
+    font-size: 32px;
+    font-weight: bold;
+}

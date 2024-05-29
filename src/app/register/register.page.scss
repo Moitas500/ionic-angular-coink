@@ -4,10 +4,15 @@ ion-header{
     background-color: white;
 }
 
+ion-img {
+    width: 180px;
+}
+
 ion-title {
+    font-family: $font-family;
     color: $green-dark;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     margin-right: 15%;
 }
 
@@ -15,8 +20,10 @@ ion-back-button {
     color: $green-logo;
 }
 
-ion-radio-group {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.divider {
+    flex-shrink: 0;
+    width: 60px; 
+    height: 1px; 
+    background-color: #ccc; 
+    margin: 0 8px;  
 }

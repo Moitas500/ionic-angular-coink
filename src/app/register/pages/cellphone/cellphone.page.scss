@@ -1,0 +1,50 @@
+@import "../../../../theme/variables.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+input::placeholder {
+    color: #888; 
+}
+
+ion-img {
+    width: 80px;
+    position: absolute;
+    margin-left: 5%;
+}
+
+p {
+    color: #757575;
+    font-size: 16px;
+}
+
+.container-phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    width: 90%;
+    margin-left: 6%;
+}
+
+.container-image {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15%;
+    margin-right: 10%;
+}
+
+.container-image div {
+    margin-left: 35%;
+}
+
+.divider {
+    flex-shrink: 0;
+    width: 90%; 
+    height: 2px; 
+    background-color: $green-bright; 
+    margin-top: 7%;
+    margin-left: 5%;
+}

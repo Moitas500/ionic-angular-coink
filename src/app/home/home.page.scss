@@ -26,9 +26,11 @@ ion-img{
 #container p {
   color: $green-logo;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 24px;
   margin-bottom: 20px; 
   font-family: $font-family;
+  font-weight: bold;
+  word-spacing: 0;
 }
 
 .container-buttons {
@@ -45,15 +47,17 @@ button {
   margin: 10px 0;
   border: none;
   border-radius: 25px;
-  font-size: 1em;
+  font-size: 16px;
   font-family: $font-family;
 }
 
 .register {
   background-color: $green-bright;
   color: $black-text;
+  font-weight: bold;
 }
 
 .signup {
   background-color: $green-dark;
+  font-weight: 100;
 }

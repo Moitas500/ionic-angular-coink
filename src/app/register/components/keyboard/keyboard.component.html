@@ -1,0 +1,38 @@
+<form [formGroup]="formCellphone" (ngSubmit)="onSubmit()">
+
+  <input 
+    type="text"
+    placeholder="( X X X - X X X X X X )"
+    formControlName = "cellphone"
+    readonly
+  >
+
+<div class="container-keyboard">
+
+  @for (button of listButtons; track $index) {
+    @switch (button) {
+      @case ('X') {
+        <ion-button fill="clear" class="button-green" (click) = "onDelete()">
+          <ion-icon class="back-icon" slot="icon-only" name="backspace-outline"></ion-icon>
+        </ion-button>
+      }
+      @case ('>') {
+        <ion-button 
+          type="submit" 
+          fill="clear" 
+          [ngClass]="{'approved-button': isMaxReached(),'gray-button': !isMaxReached()}"
+          [disabled]="!isMaxReached()"
+        >
+          <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+        </ion-button>
+      }
+      @default {
+        <ion-button fill="clear" class="button-green" (click) = "addToInput(button)">
+          <span>{{ button }}</span>
+        </ion-button>
+      }
+    }
+  }
+  </div>
+
+</form>

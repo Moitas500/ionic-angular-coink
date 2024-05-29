@@ -41,23 +41,8 @@ ion-img{
   margin-top: auto;
 }
 
-button {
-  width: 90%;
-  padding: 18px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  font-family: $font-family;
-}
-
-.register {
-  background-color: $green-bright;
-  color: $black-text;
-  font-weight: bold;
-}
-
 .signup {
   background-color: $green-dark;
   font-weight: 100;
+  color: white;
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cellphone } from '../interfaces/user.interface';
+import { Account, Cellphone, User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +7,33 @@ import { Cellphone } from '../interfaces/user.interface';
 export class UserService {
 
   private _cellphone?: Cellphone
+  private _user?: User
+  private _account?: Account
+
+  getAccount() {
+    return {...this._account}
+  }
   
+  getCellphone() {
+    return {...this._cellphone}
+  }
+
+  getUser() {
+    return { ...this._user }
+  }
+
   setCellphone(cellphone: Cellphone) {
     this._cellphone = cellphone
   }
 
-  getCellphone() {
-    return {...this._cellphone}
+  setUser(user: User) {
+    console.log(user)
+    this._user = user
+  }
+
+  setAccount(account: Account) {
+    console.log(account)
+    this._account = account
   }
 
 }

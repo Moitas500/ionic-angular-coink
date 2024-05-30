@@ -1,0 +1,159 @@
+<form [formGroup]="accountDataForm" (ngSubmit)="onSubmit()">
+
+  <h5>Documento de identidad</h5>
+
+  <ion-list>
+        <ion-item>
+
+            <ion-select 
+                interface="popover" 
+                labelPlacement="floating"
+                formControlName = "typeDocument"
+            >
+                <div slot="label" class="placeholder">
+                    Tipo de documento
+                </div>
+                @for (typeDocument of typeDocuments(); track $index) {
+                    <ion-select-option [value]="typeDocument.description">
+                        {{ typeDocument.description }}
+                    </ion-select-option>
+                }
+            </ion-select>
+
+        </ion-item>
+        <ion-item>
+            <ion-input
+                labelPlacement="floating"
+                formControlName = "numDocument"
+            >
+                <div slot="label" class="placeholder">
+                    Numero de documento
+                </div>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input
+                labelPlacement="floating"
+                formControlName = "expDocument"
+            >
+                <div slot="label" class="placeholder">
+                    Fecha de expedicion del documento
+                </div>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input
+                labelPlacement="floating"
+                formControlName = "birthday"
+            >
+                <div slot="label" class="placeholder">
+                    Fecha de nacimiento
+                </div>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+
+            <ion-select 
+                interface="popover" 
+                labelPlacement="floating" 
+                formControlName = "gender"
+            >
+                <div slot="label" class="placeholder">
+                    Genero
+                </div>
+
+                @for (gender of genders(); track $index) {
+                    <ion-select-option [value]="gender.id">
+                        {{ gender.notation }}
+                    </ion-select-option>
+                }
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <h5>Configura tu cuenta</h5>
+
+    <ion-list>
+        <ion-item>
+            <ion-input
+                labelPlacement="floating"
+                formControlName = "email"
+            >
+                <div slot="label" class="placeholder">
+                    Correo electronico
+                </div>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input
+                labelPlacement="floating"
+                formControlName = "confirmationEmail"
+            >
+                <div slot="label" class="placeholder">
+                    Confirmar correo electronico
+                </div>
+
+                @if ( emailMathces() ) {
+                    <ion-icon
+                        class="check-email"
+                        slot="end"
+                        name="checkmark-outline" 
+                        aria-hidden="true"
+                    ></ion-icon>
+                }
+
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input
+                [type]="buttonPin() ? 'text' : 'password'"
+                labelPlacement="floating"
+                formControlName = "pin"
+            >
+                <div slot="label" class="placeholder">
+                    PIN de seguridad
+                </div>
+
+                <ion-icon 
+                    (click)="toogleButtonPin()"
+                    slot="end"
+                    [name]="buttonPin() ? 'eye' : 'eye-off-outline'" 
+                    aria-hidden="true"
+                ></ion-icon>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input
+                [ngClass]="{'error-input': accountDataForm.getError('pinError')}"
+                [type]="buttonConfirmationPin() ? 'text' : 'password'"
+                labelPlacement="floating"
+                formControlName = "confirmationPIN"
+                [errorText]="accountDataForm.getError('pinError') ? 'Este campo no coincide con el PIN' : ''"
+            >
+                <div 
+                    slot="label" 
+                    class="placeholder" 
+                    [ngClass]="{'error-input': accountDataForm.getError('pinError')}"
+                >
+                    Confirmar PIN de seguridad
+                </div>
+
+                <ion-icon 
+                    (click)="toogleConfirmationPin()"
+                    slot="end"
+                    [name]="buttonConfirmationPin() ? 'eye' : 'eye-off-outline'" 
+                    aria-hidden="true"
+                ></ion-icon>
+            </ion-input>
+        </ion-item>
+    </ion-list>
+
+    <button 
+        type="submit" 
+        [disabled]="!accountDataForm.valid" 
+        [ngClass]="{'approved-button': accountDataForm.valid}"
+    >
+        SIGUIENTE
+    </button>
+  
+</form>

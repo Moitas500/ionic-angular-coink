@@ -1,0 +1,33 @@
+@import "../../../../theme/variables.scss";
+
+ion-item {
+    margin-bottom: 15px;
+    width: 90%;
+}
+
+h5 {
+    font-family: $font-family;
+    color: $green-dark;
+    font-weight: bold;
+}
+
+.approved-button {
+    color: $green-dark;
+    background-color: $green-bright;
+}
+
+.placeholder {
+    color: #AAAAAA;
+}
+
+ion-icon {
+    color: black;
+}
+
+.error-input {
+    color: red;
+}
+
+.check-email {
+    color: $green-bright;
+}

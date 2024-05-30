@@ -1,7 +1,7 @@
 export interface User {
-    type_document: string
-    number_document: number
-    date_expedition: string
+    typeDocument: string
+    numberDocument: number
+    expDocument: string
     birthdate: string
     gender: string
 }

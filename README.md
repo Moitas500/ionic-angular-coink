@@ -22,3 +22,5 @@ ionic serve
 # Build app
 ionic build
 ```
+The project has an error with some styles, but due to time issues I cannot solve it. Just in case, 
+Reload to see all styles in the app.

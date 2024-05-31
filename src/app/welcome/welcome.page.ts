@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ModalComponent } from './components/modal/modal.component';
+import { UserService } from '../register/services/user.service';
 
 @Component({
   selector: 'app-welcome',
@@ -10,6 +11,16 @@ import { ModalComponent } from './components/modal/modal.component';
     ModalComponent
   ]
 })
-export default class WelcomePage {
+export default class WelcomePage implements OnInit{
+
+  private userService = inject(UserService)
+
+  ngOnInit(): void {
+    console.log(
+      this.userService.getAccount(),
+      this.userService.getCellphone(),
+      this.userService.getUser()
+    )
+  }
 
 }

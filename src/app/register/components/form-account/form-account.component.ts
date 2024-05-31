@@ -39,6 +39,8 @@ import { UserService } from '../../services/user.service';
 export class FormAccountComponent  implements OnInit {
 
   public accountDataForm!: FormGroup
+  public isDocumentsCharge: WritableSignal<boolean> = signal(false)
+  public isGendersCharge: WritableSignal<boolean> = signal(false)
   public isFormValid: WritableSignal<boolean> = signal(false)
   public typeDocuments: WritableSignal<TypeDocument []> = signal([])
   public genders: WritableSignal<Gender []> = signal([])
@@ -52,12 +54,14 @@ export class FormAccountComponent  implements OnInit {
 
   async ngOnInit() {
     this.formAccountService.getTypeDocuments().subscribe(typeDocuments => {
+      this.isDocumentsCharge.set(true)
       this.typeDocuments.set(typeDocuments)
     })
 
     this.formAccountService.getGenders().subscribe(genders => {
       //El endpoint devuelve un payload en vez de los generos
       console.log(genders)
+      this.isGendersCharge.set(true)
       this.genders.set(this.formAccountService.getGendersArray())
     })
 
@@ -68,18 +72,21 @@ export class FormAccountComponent  implements OnInit {
     this.accountDataForm = this.fb.group({
         typeDocument: ['', Validators.required],
         numDocument: ['', Validators.required],
-        expDocument: ['', Validators.required],
-        birthday: ['', Validators.required],
+        expDocument: ['', [Validators.required]],
+        birthday: ['', [Validators.required]],
         gender: ['', Validators.required],
-        email: ['', [Validators.required]],
-        confirmationEmail: ['', [Validators.required],],
+        email: ['', [Validators.required, Validators.email]],
+        confirmationEmail: ['', [Validators.required, Validators.email],],
         pin: ['', Validators.required],
         confirmationPIN: ['', Validators.required]
       },
       {
         validators: [
           this.validatorService.isFieldOneEqualFieldTwo('email', 'confirmationEmail', { emailError: true }),
-          this.validatorService.isFieldOneEqualFieldTwo('pin', 'confirmationPIN', { pinError: true })
+          this.validatorService.isFieldOneEqualFieldTwo('pin', 'confirmationPIN', { pinError: true }),
+          this.validatorService.dateValidator('expDocument', { dateExpError: true }),
+          this.validatorService.dateValidator('birthday', { dateBirthError: true }),
+
         ]
       }
     )
@@ -90,8 +97,19 @@ export class FormAccountComponent  implements OnInit {
       return
     }
 
-    this.userService.setUser({...this.accountDataForm.value})
-    this.userService.setAccount({...this.accountDataForm.value})
+    this.userService.setUser(
+      {
+        typeDocument: this.accountDataForm.get('typeDocument')?.value,
+        birthdate: this.accountDataForm.get('birthday')?.value,
+        expDocument: this.accountDataForm.get('expDocument')?.value,
+        gender: this.accountDataForm.get('gender')?.value,
+        numberDocument: this.accountDataForm.get('numDocument')?.value
+      }
+    )
+    this.userService.setAccount({
+      email: this.accountDataForm.get('email')?.value,
+      pin: this.accountDataForm.get('pin')?.value,
+    })
 
     this.router.navigate(['/register/end'])
   }

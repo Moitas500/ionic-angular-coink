@@ -27,12 +27,10 @@ export class UserService {
   }
 
   setUser(user: User) {
-    console.log(user)
     this._user = user
   }
 
   setAccount(account: Account) {
-    console.log(account)
     this._account = account
   }
 

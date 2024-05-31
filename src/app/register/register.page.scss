@@ -27,3 +27,10 @@ ion-back-button {
     background-color: #ccc; 
     margin: 0 8px;  
 }
+
+.toolbar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

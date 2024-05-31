@@ -33,6 +33,10 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'welcome',
+    loadComponent: () => import('./welcome/welcome.page')
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',

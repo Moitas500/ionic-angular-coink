@@ -1,0 +1,57 @@
+@import "../../../../theme/variables.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+ion-img {
+    width: 80px;
+    position: absolute;
+    margin-left: 5%;
+}
+
+.img-oink {
+    margin-top: 10%;
+}
+
+p {
+    font-size: 14px;
+}
+
+.container-phone {
+    display: flex;
+    flex-direction: column;
+    margin-top: 7%;
+    width: 90%;
+    margin-left: 6%;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-bottom: 30px;
+}
+
+.container-image {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-right: 10%;
+}
+
+.container-image div {
+    margin-left: 35%;
+}
+
+.divider {
+    flex-shrink: 0;
+    width: 90%; 
+    height: 2px; 
+    background-color: $green-bright; 
+    margin-top: 4%;
+    margin-left: 5%;
+}
+
+h6 {
+    font-family: $font-family;
+    color: $green-dark;
+    font-weight: bold;
+}

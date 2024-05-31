@@ -1,0 +1,26 @@
+@import "../../../../theme/variables.scss";
+
+h6 {
+    font-family: $font-family;
+    color: $green-dark;
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+}
+
+.check-container {
+    display: flex;
+    align-items: center;
+}
+
+.check-container p{
+    margin-left: 10px;
+    color: $green-dark;
+}
+
+button {
+    background-color: $green-bright;
+    color: $green-dark;
+}

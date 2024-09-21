@@ -3,6 +3,8 @@
 .container {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
 }
 
 input::placeholder {
@@ -47,4 +49,18 @@ p {
     background-color: $green-bright; 
     margin-top: 7%;
     margin-left: 5%;
+}
+
+@media (max-height: 600px) {
+    .container-image {
+        margin-top: 1%;
+    }
+
+    .divider {
+        margin-top: 3%;
+    }
+
+    .container-phone {
+        margin-top: 0;
+    }
 }

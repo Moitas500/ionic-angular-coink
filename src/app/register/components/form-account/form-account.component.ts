@@ -52,17 +52,15 @@ export class FormAccountComponent  implements OnInit {
   private formAccountService = inject(FormAccountService)
   private userService = inject(UserService)
 
-  async ngOnInit() {
+  ngOnInit() {
     this.formAccountService.getTypeDocuments().subscribe(typeDocuments => {
       this.isDocumentsCharge.set(true)
       this.typeDocuments.set(typeDocuments)
     })
 
     this.formAccountService.getGenders().subscribe(genders => {
-      //El endpoint devuelve un payload en vez de los generos
-      console.log(genders)
       this.isGendersCharge.set(true)
-      this.genders.set(this.formAccountService.getGendersArray())
+      this.genders.set(genders)
     })
 
     this.createForm()
@@ -82,11 +80,18 @@ export class FormAccountComponent  implements OnInit {
       },
       {
         validators: [
-          this.validatorService.isFieldOneEqualFieldTwo('email', 'confirmationEmail', { emailError: true }),
-          this.validatorService.isFieldOneEqualFieldTwo('pin', 'confirmationPIN', { pinError: true }),
-          this.validatorService.dateValidator('expDocument', { dateExpError: true }),
-          this.validatorService.dateValidator('birthday', { dateBirthError: true }),
-
+          this.validatorService.isFieldOneEqualFieldTwo(
+            'email', 'confirmationEmail', { emailError: true }
+          ),
+          this.validatorService.isFieldOneEqualFieldTwo(
+            'pin', 'confirmationPIN', { pinError: true }
+          ),
+          this.validatorService.dateValidator(
+            'expDocument', { dateExpError: true }
+          ),
+          this.validatorService.dateValidator(
+            'birthday', { dateBirthError: true }
+          ),
         ]
       }
     )

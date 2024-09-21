@@ -3,6 +3,8 @@
 .container {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
 }
 
 ion-img {
@@ -22,10 +24,8 @@ p {
 .container-phone {
     display: flex;
     flex-direction: column;
-    margin-top: 7%;
     width: 90%;
     margin-left: 6%;
-    max-height: 400px;
     overflow-y: auto;
     padding-bottom: 30px;
 }
@@ -35,6 +35,7 @@ p {
     flex-direction: row;
     margin-top: 5%;
     margin-right: 10%;
+    align-items: flex-end;
 }
 
 .container-image div {

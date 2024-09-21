@@ -1,12 +1,11 @@
 $green-logo: #1EEA00;
 $green-bright: #28da28;
 $green-dark: #004B40;
-$font-family: 'Monserrat';
-$black-text: #3a3636;
+$font-family: 'Arial', sans-serif;
 
 .button-coink {
     background-color: $green-bright;
-    color: $black-text;
+    color: $green-dark;
     font-weight: bold;
 }
 
